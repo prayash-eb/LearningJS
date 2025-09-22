@@ -227,3 +227,36 @@ console.log('Using generator function in Symbol.Iterator');
 for (const user of users) {
     console.log(user);
 }
+
+
+
+/*
+***Reflect***
+Reflect is an built-in object that provides methods for interceptable operations on objects.
+
+It’s similar to Object methods but with a few key differences:
+- Returns Boolean or proper values instead of throwing errors in some cases.
+- Provides a functional form of many low-level object operations (like get, set, delete, has).
+Often used in combination with Proxies.
+
+The Reflect API is similar to the Object with minor differences. Reflect was introduced in ES6. 
+- Reflect has a deleteProperty method which Object doesnot have.
+- Reflect provides a cleaner functional approach to interact with objects
+
+*/
+
+
+const course = {
+    title: "Advaned JS Guide"
+}
+Reflect.setPrototypeOf(course, {
+    toString() {
+        return this.title
+    }
+})
+
+Reflect.set(course, "author", {
+    name:"prayash mishra",
+})
+console.log("Course:", course);
+console.log("Using Reflect to setProtoType:", course.toString());
